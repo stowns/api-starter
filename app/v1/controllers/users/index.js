@@ -11,8 +11,17 @@ var ResourceController = require(app.locals.appPath + '/lib/sequelizeResourceCon
 /* beforeAction definitions */
 var before = {
   logParams : function(req, res, next) {
-    log.info('PARAMS:');
-    log.info(req.params);
+    if (process.env.NODE_ENV !== 'test') {
+      log.info('PARAMS:');
+      log.info(req.params);
+    }
+
+    next();
+  }, 
+  exampleMiddleware : function(req, res, next) {
+    if (process.env.NODE_ENV !== 'test') {
+      log.info('example middleware!');
+    }
 
     next();
   }
@@ -20,10 +29,9 @@ var before = {
 
 opts = {
   before: { // Middleware support
-    //all: before.logParams,
-    index: [middleware.authRole('admin')],
-    destroy: [middleware.authRole('admin')],
-    query: [middleware.authRole('admin')]
+    all: before.logParams,
+    index: [before.exampleMiddleware],
+    destroy: [before.exampleMiddleware]
   }
 };
 

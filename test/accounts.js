@@ -1,5 +1,3 @@
-process.env.NODE_ENV = 'test'
-
 var should    = require('chai').should(),
     supertest = require('supertest'),
     app       = require('../main'),

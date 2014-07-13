@@ -32,6 +32,6 @@
   },
   "scripts": {
     "start": "axle node main.js",
-    "test": "mocha --timeout 5000 --reporter nyan"
+    "test": "NODE_ENV=test mocha --timeout 5000 --reporter spec --ui bdd"
   }
 }
