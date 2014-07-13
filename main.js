@@ -71,7 +71,7 @@ versions = {'Version 1': '/v1',
 // route to display versions
 app.get('/', function(req, res) {
     res.json(versions);
-})
+});
 
 // import and apply the routes
 for (var k in versions) { 
@@ -81,7 +81,7 @@ for (var k in versions) {
 
 app.locals.db.sequelize.sync().complete(function(err) {
   if (err) {
-    throw err
+    throw err;
   } else {
     if (isProduction()) {  // only run clustered in prod
       new Cluster()
@@ -113,7 +113,7 @@ function isTest() {
 /* Initialization */
 function startServer() {
   http.createServer(app).listen(conf.server.port.http, function(){
-    console.log('Express server listening on port ' + conf.server.port.http)
+    console.log('Express server listening on port ' + conf.server.port.http);
   });
 }
 

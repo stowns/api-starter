@@ -20,8 +20,8 @@ conf.redis = {
 conf.postgres = {
   database : 'api_test',
   port     : 5432,
-  uname    : 'uname',
-  pass     : 'pass',
+  uname    : 'pagelever',
+  pass     : 'pagelever',
   logging  : true
 };
 
