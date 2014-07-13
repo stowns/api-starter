@@ -143,7 +143,7 @@ describe('User Associations', function() {
   before(function (done) {
     db.sequelize.sync().complete(function(err) {
       if (err) { 
-        throw err 
+        throw err;
       }
       else {
         db.sequelize.query("DELETE FROM users")

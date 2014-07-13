@@ -15,12 +15,12 @@ ModelBuilder.prototype.build = function(modelName) {
       keys = ModelClass.rawAttributes,
       mock;
 
-  this.digitsRegex = /\((.*?)\)/
+  this.digitsRegex = /\((.*?)\)/;
   keys = _.omit(keys, ['createdAt', 'updatedAt', 'id']);
   mock = _.mapValues(keys, function(v) { return  _this.getType(v.toString()); });
   
   return mock;
-}
+};
 
 ModelBuilder.prototype.getType = function(type) {
   var types = {
@@ -38,21 +38,23 @@ ModelBuilder.prototype.getType = function(type) {
   };
 
   if (_.str.startsWith(type, 'TINYB')) {
-    return types['TINY'](type);
+    return types.TINY(type);
   } else {
     return types[type.substring(0,3)](type);
   }
 
-}
+};
+
 ModelBuilder.prototype.randomString = function (length) {
     var result = '',
-      chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\'"!@#$%^&*()-_+=.,;:></?[]{}\\`~|'
+      chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\'"!@#$%^&*()-_+=.,;:></?[]{}\\`~|';
+
     for (var i = length; i > 0; --i) result += chars[Math.round(Math.random() * (chars.length - 1))];
     
     console.log('RANDOM STRING GENERATED');
     console.log(result);
     return result;
-}
+};
 
 ModelBuilder.prototype.randomNumber = function (precision, scale) {
   var result;
@@ -63,7 +65,7 @@ ModelBuilder.prototype.randomNumber = function (precision, scale) {
   }
   
   return parseFloat(result);
-}
+};
 
 ModelBuilder.prototype.getVarChar = function(type) {
   var digits;
@@ -76,23 +78,21 @@ ModelBuilder.prototype.getVarChar = function(type) {
   }
 
   return this.randomString(digits);
-}
+};
 
 ModelBuilder.prototype.getText = function() {
-  
-}
+};
 
 ModelBuilder.prototype.getInt = function(type) {
   return Math.random() * 100|0;
-}
+};
 
 ModelBuilder.prototype.getBigInt = function() {
-  
-}
+};
 
 ModelBuilder.prototype.getFloat = function(type) {
   return Math.random() * 100;
-}
+};
 
 ModelBuilder.prototype.getDecimal = function(type) {
   var digits, result;
@@ -106,26 +106,21 @@ ModelBuilder.prototype.getDecimal = function(type) {
   }
 
   return result;
-}
+};
 
 ModelBuilder.prototype.getDateTime = function() {
-  
-}
+};
 
 ModelBuilder.prototype.getTinyInt = function() {
-  
-}
+};
 
 ModelBuilder.prototype.getEnum = function() {
-  
-}
+};
 
 ModelBuilder.prototype.getBlob = function() {
-  
-}
+};
 
 ModelBuilder.prototype.getTinyBlob = function() {
-  
-}
+};
 
 exports = module.exports = ModelBuilder;

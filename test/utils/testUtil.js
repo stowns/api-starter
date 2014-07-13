@@ -9,7 +9,7 @@ TestUtil.prototype.clean = function(callback) {
   var _this = this;
   _this.db.sequelize.sync().complete(function(err) {
     if (err) {
-      throw err
+      throw err;
     } else {
       _this.db.sequelize.query("SELECT * FROM pg_catalog.pg_tables")
         .error(function (err) {
@@ -37,6 +37,6 @@ TestUtil.prototype.clean = function(callback) {
         });
     }
   });
-}
+};
 
 exports = module.exports = TestUtil;

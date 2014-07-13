@@ -12,16 +12,17 @@ var should    = require('chai').should(),
 var randomString = function () {
     var result = '',
       length = 5,
-      chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\'"!@#$%^&*()-_+=.,;:></?[]{}\\`~|'
+      chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\'"!@#$%^&*()-_+=.,;:></?[]{}\\`~|';
+
     for (var i = length; i > 0; --i) result += chars[Math.round(Math.random() * (chars.length - 1))];
     return result + chars;
-}
+};
 
 describe('The AccountsController works', function() {
   before(function (done) {
     db.sequelize.sync().complete(function(err) {
       if (err) {
-        throw err
+        throw err;
       } else {
         db.sequelize.query("DELETE FROM accounts")
           .error(function (err) {

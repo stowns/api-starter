@@ -54,7 +54,7 @@ module.exports = function(conf) {
     var ScopeClass, scopeName, models, paramKeys;
 
     // build an array of all the model names available - the model name in question
-    possibleScopes = _.reject(db.modelNames, function(m) { return m === modelName});
+    possibleScopes = _.reject(db.modelNames, function(m) { return m === modelName; });
     // parse the passed param names (keys)
     paramKeys = _.keys(params);
     // find the scopeName ie) GET /users/:user/accounts : scopeName=user
@@ -105,4 +105,4 @@ module.exports = function(conf) {
   db.Account.hasMany(db.User);
 
   return db;
-}
+};
