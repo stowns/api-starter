@@ -49,8 +49,8 @@ controller.new = function(req, res) {
 controller.create = function(req, res) {
   var user;
 
-  user = new User({ nameFirst : req.body.nameFirst });
-  debugger
+  user = new User(req.body.user);
+
   user.save(function(err, user) {
     console.log(err || user);
     res.send(err || user);
