@@ -1,7 +1,7 @@
 API Starter
 =======
 
-A seed project for building out a new api.  Supports resource-based routing, Sequel Models, Redis caching, TESTING, and clustering out of the box.
+A seed project for building out a new api.  Supports resource-based routing, testing, and clustering out of the box.
 
 * [Getting Started](#getting-started)
   * [Dependencies](#dependencies)
@@ -21,8 +21,8 @@ A seed project for building out a new api.  Supports resource-based routing, Seq
 
 ### Dependencies
 - [Node.js ≥ 0.10.22][node]
-- [Postgres][postgres]
-- [Redis][redis] (production only)
+- [NVM (optional)][nvm]
+- [MongoDB][mongo]
 
 ### Signals
 
@@ -44,3 +44,5 @@ The default grunt task generates documentation using [APIDoc][apidoc].
 [redis]: http://redis.io/download "Redis"
 [jshint]: http://www.jshint.com/docs/ "JSHint"
 [apidoc]: http://apidocjs.com/ "APIDocJS"
+[nvm]: https://github.com/creationix/nvm
+[mongo]: http://docs.mongodb.org/manual/installation/
