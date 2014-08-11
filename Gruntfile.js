@@ -7,7 +7,7 @@ module.exports = function(grunt) {
         options: {
           jshintrc: true
         },
-        src: ['*.js', 'app/**/*.js', 'lib/**/*.js', 'test/**/*.js', 'models/**/*.js'],
+        src: ['*.js', 'app/**/*.js', 'lib/**/*.js', 'test/**/*.js'],
       },
     },
     watch: {
@@ -15,7 +15,7 @@ module.exports = function(grunt) {
       options: {
         livereload: true
       },
-      files: ['*.js', 'app/**/*.js', 'lib/**/*.js', 'test/**/*.js', 'models/**/*.js'],
+      files: ['*.js', 'app/**/*.js', 'lib/**/*.js', 'test/**/*.js'],
       tasks: ['jshint:dev']
     },
     apidoc: {

@@ -1,6 +1,5 @@
-var fs = require('fs')
-  , mongoose = require('mongoose')
-;
+var fs = require('fs'),
+    mongoose = require('mongoose');
 
 // get the subdirectories
 var modelFiles = fs.readdirSync(__dirname);
