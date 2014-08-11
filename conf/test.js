@@ -1,7 +1,8 @@
 var conf = {};
 
 conf.app = {
-  name : 'my-api'
+  name : 'api-starter',
+  env  : 'test'
 };
 
 conf.server = {
@@ -11,23 +12,7 @@ conf.server = {
   }
 };
 
-conf.redis = {
-  host : 'localhost',
-  port : 6379,
-  pass : null
-};
-
-conf.postgres = {
-  database : 'api_test',
-  port     : 5432,
-  uname    : 'pagelever',
-  pass     : 'pagelever',
-  logging  : true
-};
-
-conf.session = {
-  secret : 'supersecret'
-};
+conf.mongoUrl = 'mongodb://localhost/api-starter-test';
 
 conf.logger = {
   web : {
@@ -35,9 +20,10 @@ conf.logger = {
     format    : 'dev'
   },
   app : {
-    index : false
-  },
-  sequelize : console.log
+    persist : { enabled : 'false',
+                level   : 'info'}, // mongo required
+    level   : 'debug'
+  }
 };
 
 module.exports = conf;

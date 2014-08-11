@@ -1,7 +1,8 @@
 var conf = {};
 
 conf.app = {
-  name : 'my-api'
+  name : 'api-starter',
+  env  : 'production'
 };
 
 conf.server = {
@@ -11,23 +12,7 @@ conf.server = {
   }
 };
 
-conf.redis = {
-  host : process.env.REDIS_HOST,
-  port : process.env.REDIS_PORT,
-  pass : process.env.REDIS_PASS
-};
-
-conf.postgres = {
-  database : process.env.POSTGRES_DB,
-  port     : process.env.POSTGRES_PORT,
-  uname    : process.env.POSTGRES_UNAME,
-  pass     : process.env.POSTGRES_PASS,
-  logging  : process.env.POSTGRES_LOGGING || false
-};
-
-conf.session = {
-  secret : process.env.SESSION_SECRET
-};
+conf.mongoUrl = process.env.MONGO_URL;
 
 conf.logger = {
   web : {
@@ -35,9 +20,10 @@ conf.logger = {
     format    : 'dev'
   },
   app : {
-    index : false
-  },
-  sequelize : false
+    persist : { enabled : 'false',
+                level   : 'info'}, // mongo required
+    level   : 'error'
+  }
 };
 
 module.exports = conf;
